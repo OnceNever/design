@@ -1,0 +1,72 @@
+桥接模式
+===
+
+## 1. 概述
+
+桥接模式（Bridge Pattern）是一种结构型设计模式，可将业务逻辑或一个大类拆分为多个独立的层次结构，从而能在开发时分别使用。
+
+## 2. 作用
+
+桥接模式的作用是将一组实现与另一组实现解耦，从而可以独立地改变它们。
+
+## 3. 实现
+
+### 3.1. 通用代码
+
+```java
+public interface Implementor {
+    void operationImpl();
+}
+
+public class ConcreteImplementorA implements Implementor {
+    @Override
+    public void operationImpl() {
+        System.out.println("ConcreteImplementorA.operationImpl()");
+    }
+}
+
+public class ConcreteImplementorB implements Implementor {
+    @Override
+    public void operationImpl() {
+        System.out.println("ConcreteImplementorB.operationImpl()");
+    }
+}
+
+public abstract class Abstraction {
+    protected Implementor implementor;
+
+    public Abstraction(Implementor implementor) {
+        this.implementor = implementor;
+    }
+
+    public abstract void operation();
+}
+
+public class RefinedAbstraction extends Abstraction {
+    public RefinedAbstraction(Implementor implementor) {
+        super(implementor);
+    }
+
+    @Override
+    public void operation() {
+        implementor.operationImpl();
+    }
+}
+```
+
+### 3.2. 示例
+
+```java
+public class Client {
+    public static void main(String[] args) {
+        Implementor implementorA = new ConcreteImplementorA();
+        Implementor implementorB = new ConcreteImplementorB();
+
+        Abstraction abstractionA = new RefinedAbstraction(implementorA);
+        abstractionA.operation();
+
+        Abstraction abstractionB = new RefinedAbstraction(implementorB);
+        abstractionB.operation();
+    }
+}
+```
