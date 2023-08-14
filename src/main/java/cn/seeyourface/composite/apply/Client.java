@@ -31,8 +31,8 @@ public class Client {
         q2.addItem(i5);
         CompositeCheckItem content2 = new CompositeCheckItem("检查内容2", 0.5);
         category1.addItem(content2);
-        CompositeCheckItem q3 = new CompositeCheckItem("检查问题1", 0.5);
-        CompositeCheckItem q4 = new CompositeCheckItem("检查问题2", 0.5);
+        CompositeCheckItem q3 = new CompositeCheckItem("检查问题3", 0.5);
+        CompositeCheckItem q4 = new CompositeCheckItem("检查问题4", 0.5);
         content2.addItem(q3);
         content2.addItem(q4);
         CheckItemImpl i6 = new CheckItemImpl("检查项6", 0.3, (byte)0);
