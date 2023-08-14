@@ -1,6 +1,7 @@
 package cn.seeyourface.composite.apply;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.NumberUtil;
 import cn.seeyourface.composite.Company;
 import org.apache.commons.lang3.StringUtils;
 
@@ -17,8 +18,8 @@ import java.util.List;
 public class CompositeCheckItem extends CheckItem {
     private final List<CheckItem> items;
 
-    public CompositeCheckItem(String name, Double Score) {
-        super(name, Score);
+    public CompositeCheckItem(String name, Double weight) {
+        super(name, weight);
         this.items = new ArrayList<>();
     }
 
@@ -31,6 +32,7 @@ public class CompositeCheckItem extends CheckItem {
     }
 
     void addItem(CheckItem item) {
+        item.score = NumberUtil.round(NumberUtil.mul(this.score, item.weight), 2).doubleValue();
         this.items.add(item);
     }
 

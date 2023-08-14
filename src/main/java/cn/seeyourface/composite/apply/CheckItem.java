@@ -11,17 +11,16 @@ package cn.seeyourface.composite.apply;
 public abstract class CheckItem {
     protected String name;
     protected Double score;
+    protected Double weight;
     protected Boolean checkable;
 
-    public CheckItem(String name, Double score) {
-        this.name = name;
-        this.score = score;
-        this.checkable = true;
+    public CheckItem(String name, Double weight) {
+        this(name, weight, true);
     }
 
-    public CheckItem(String name, Double score, Boolean checkable) {
+    public CheckItem(String name, Double weight, Boolean checkable) {
         this.name = name;
-        this.score = score;
+        this.weight = weight;
         this.checkable = checkable;
     }
 

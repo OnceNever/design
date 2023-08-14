@@ -10,8 +10,8 @@ import org.apache.commons.lang3.StringUtils;
  * @since 1.1.0
  */
 public class CheckItemImpl extends CheckItem {
-    public CheckItemImpl(String name, Double score, Boolean checkable) {
-        super(name, score, checkable);
+    public CheckItemImpl(String name, Double weight, Boolean checkable) {
+        super(name, weight, checkable);
     }
 
     @Override
