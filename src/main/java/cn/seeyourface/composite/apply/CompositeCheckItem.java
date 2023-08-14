@@ -24,8 +24,8 @@ public class CompositeCheckItem extends CheckItem {
     }
 
     @Override
-    public double display() {
-        double s = items.stream().mapToDouble(CheckItem::display).sum();
+    public double display(Byte type) {
+        double s = items.stream().mapToDouble(i -> i.display(type)).sum();
         String n = name + "的得分为：" + s;
         System.out.println(n);
         return s;

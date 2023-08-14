@@ -10,13 +10,13 @@ import org.apache.commons.lang3.StringUtils;
  * @since 1.1.0
  */
 public class CheckItemImpl extends CheckItem {
-    public CheckItemImpl(String name, Double weight, Boolean checkable) {
+    public CheckItemImpl(String name, Double weight, Byte checkable) {
         super(name, weight, checkable);
     }
 
     @Override
-    public double display() {
-        double s = checkable ? score : 0D;
+    public double display(Byte type) {
+        double s = (checkable | type) == 1 ? score : 0D;
         System.out.println(name + "的得分为：" + s);
         return s;
     }
